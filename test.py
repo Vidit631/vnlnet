@@ -122,13 +122,18 @@ def test(training_args, model_state_dict, video, foutnames, only_frame, cuda, ad
     print ("Training args:\n")
     print (training_args)
 
-    model = ModifiedDnCNN(input_channels=training_args.input_channels,
+    model = ModifiedDnCNN(input_channels=0,
                           output_channels=training_args.output_channels,
                           nlconv_features=training_args.nlconv_features,
                           nlconv_layers=training_args.nlconv_layers,
                           dnnconv_features=training_args.dnnconv_features,
                           dnnconv_layers=training_args.dnnconv_layers)
-
+#     model = ModifiedDnCNN(input_channels=training_args.input_channels,
+#                           output_channels=training_args.output_channels,
+#                           nlconv_features=training_args.nlconv_features,
+#                           nlconv_layers=training_args.nlconv_layers,
+#                           dnnconv_features=training_args.dnnconv_features,
+#                           dnnconv_layers=training_args.dnnconv_layers)
     if cuda:
         device = torch.device("cuda:0")
         model.to(device)
